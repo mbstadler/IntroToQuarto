@@ -1,0 +1,100 @@
+---
+title: "Preparing for 'Introduction to literate programming with Quarto'"
+author: "Charlotte Soneson, Michael Stadler"
+date: today
+format: 
+    html:
+        toc: true
+        callout-appearance: minimal
+        embed-resources: true
+---
+
+# Disclaimer
+
+The "Introduction to literature programming with Quarto" workshop
+is based on Charlotte Soneson's "Reproducible Publishing and literate
+programming with Quarto" from 2024.
+
+# Preparing your computer for Quarto
+
+If you would like to follow along on your own computer during the workshop, 
+please install `Quarto` and prepare your setup following the instructions 
+below. For demonstrations, we will mostly be using RStudio. However, if you 
+prefer to work with Python and Visual Studio Code, that is also fine - we 
+provide parallel instructions for most parts of the workshop material. 
+
+For general instructions on how to install `Quarto`, see 
+[https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/).
+
+## R / RStudio setup
+
+Recent versions of RStudio come with built-in support for `Quarto`. Thus, 
+we recommend installing a recent version of R (the current release version is 
+4.5) and RStudio, e.g. following the links and instructions available at 
+[https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/).
+
+In order to render documents into pdf format, `Quarto` needs to be able to 
+access LaTeX. You can use `Quarto` to install `TinyTeX` by following the 
+instructions at [https://quarto.org/docs/output-formats/pdf-basics.html](https://quarto.org/docs/output-formats/pdf-basics.html) - i.e., type 
+
+::: {.callout-note}
+```
+quarto install tinytex
+```
+:::
+
+in the terminal (this can be done from the RStudio Terminal window).
+
+## Python / Visual Studio Code setup
+
+For instructions on how to get started with `Quarto` in VS Code, see 
+[https://quarto.org/docs/get-started/hello/vscode.html](https://quarto.org/docs/get-started/hello/vscode.html).
+
+First, make sure that Python is available. You may already have a conda
+or virtual environment that provides Python and necessary packages.
+If not, you can use the newer `uv` to create an environment (here named
+`quartoenv`) with the packages that we will use in this workshop.
+
+You can find information on how to install `uv` itself at [https://docs.astral.sh/uv/getting-started/installation/](https://docs.astral.sh/uv/getting-started/installation/).
+On FMI's xenon servers, `uv` can be made available using the `module` system: 
+
+::: {.callout-note}
+```
+# load the uv module (on xenon servers only)
+module purge
+module load uv
+
+# create the environment
+mkdir quartoenv
+cd quartoenv
+uv init --python 3.12
+uv add jupyter matplotlib scikit-learn papermill session-info
+:::
+
+Instructions on how to install VS Code can be found at
+[https://code.visualstudio.com/](https://code.visualstudio.com/).
+
+You will need to add a few extensions to VS Code (you can do this from 
+inside VS Code by clicking on the `Extensions` tab). The extensions we need 
+are `Python`, `Quarto`, and `Jupyter`. 
+
+Next, open the Command Palette by pressing `Ctrl` + `Shift` + `P` 
+(`Cmd` + `Shift` + `P` on macOS), and search for the command 
+`Python: Select Interpreter`. Click on it and select the interpreter 
+corresponding to the conda environment that you created above. 
+
+Finally, in order to render documents into pdf format, `Quarto` needs to be able to 
+access LaTeX. You can use `Quarto` to install `TinyTeX` by following the 
+instructions at [https://quarto.org/docs/output-formats/pdf-basics.html](https://quarto.org/docs/output-formats/pdf-basics.html) - i.e., type 
+
+::: {.callout-note}
+```
+quarto install tinytex
+```
+:::
+
+in the terminal (this can be done from the VS Code Terminal panel).
+
+# Link to material
+
+[Introduction to Quarto](IntroToQuarto.html)
