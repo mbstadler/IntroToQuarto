@@ -65,10 +65,11 @@ module purge
 module load uv
 
 # create the environment
-mkdir quartoenv
-cd quartoenv
-uv init --python 3.12
-uv add jupyter matplotlib scikit-learn papermill session-info
+uv venv quartoenv --python 3.13
+source quartoenv/bin/activate
+uv pip install jupyter matplotlib scikit-learn papermill session-info
+deactivate
+```
 :::
 
 Instructions on how to install VS Code can be found at
