@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Charlotte Soneson, Michael Stadler">
-<meta name="dcterms.date" content="2025-09-29">
+<meta name="dcterms.date" content="2025-09-30">
 
 <title>Preparing for ‘Introduction to literate programming with Quarto’</title>
 <style>
@@ -2176,7 +2176,7 @@ vertical-align: -.125em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 29, 2025</p>
+      <p class="date">September 30, 2025</p>
     </div>
   </div>
   
@@ -2215,9 +2215,9 @@ vertical-align: -.125em;
 <section id="python-visual-studio-code-setup" class="level2">
 <h2 class="anchored" data-anchor-id="python-visual-studio-code-setup">Python / Visual Studio Code setup</h2>
 <p>For instructions on how to get started with <code>Quarto</code> in VS Code, see <a href="https://quarto.org/docs/get-started/hello/vscode.html">https://quarto.org/docs/get-started/hello/vscode.html</a>.</p>
-<p>First, make sure that Python is available. You may already have a conda or virtual environment that provides Python and necessary packages. In that case, there is nothing to be done right now and we will later see how we can select this existing environment for running Python code.</p>
+<p>First, make sure that Python is available. You may already have a conda or virtual environment that provides Python and necessary packages (for this workshop that are <code>jupyter</code>, <code>matplotlib</code>, <code>scikit-learn</code>, <code>papermill</code> and <code>session-info</code>). In that case, there is nothing to be done right now and we will later see how we can select this existing environment for running Python code.</p>
 <p>If you do not have such an environment yet, or if you want to create an fresh updated or project-specific environment (a good practice), we recommend to do this using <code>uv</code>, a fast and modern python package manager.</p>
-<p>We for ensure that <code>uv</code> is available. If you are working on the FMI xenon servers, you can make <code>uv</code> available using the <code>module load</code> command:</p>
+<p>We first ensure that <code>uv</code> is available. If you are working on the FMI xenon servers, you can make <code>uv</code> available using the <code>module load</code> command:</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2240,8 +2240,8 @@ module load uv</code></pre>
 </div>
 </div>
 </div>
-<p>Note that the latter will also try to modify your shell startup script so that <code>uv</code> can be found. More details on how to install <code>uv</code> can be found at <a href="https://docs.astral.sh/uv/getting-started/installation/">https://docs.astral.sh/uv/getting-started/installation/</a></p>
-<p>We then use <code>uv</code> to create an environment (here named <code>quartoenv</code>) with the Python packages that we will use in this workshop:</p>
+<p>Note that the latter will also modify your shell startup script so that <code>uv</code> can be found. More details on how to install <code>uv</code> can be found at <a href="https://docs.astral.sh/uv/getting-started/installation/">https://docs.astral.sh/uv/getting-started/installation/</a></p>
+<p>We then use <code>uv</code> to create an environment (here named <code>quartoenv</code> and using Python version 3.13) with the Python packages that we will use in this workshop:</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">

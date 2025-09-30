@@ -51,15 +51,17 @@ For instructions on how to get started with `Quarto` in VS Code, see
 [https://quarto.org/docs/get-started/hello/vscode.html](https://quarto.org/docs/get-started/hello/vscode.html).
 
 First, make sure that Python is available. You may already have a conda
-or virtual environment that provides Python and necessary packages. In
-that case, there is nothing to be done right now and we will later see
-how we can select this existing environment for running Python code.
+or virtual environment that provides Python and necessary packages (for this
+workshop that are `jupyter`, `matplotlib`, `scikit-learn`, `papermill` and
+`session-info`). In that case, there is nothing to be done right now and we
+will later see how we can select this existing environment for running Python
+code.
 
 If you do not have such an environment yet, or if you want to create an
 fresh updated or project-specific environment (a good practice), we
 recommend to do this using `uv`, a fast and modern python package manager.
 
-We for ensure that `uv` is available. If you are working on the FMI xenon
+We first ensure that `uv` is available. If you are working on the FMI xenon
 servers, you can make `uv` available using the `module load` command:
 
 ::: {.callout-note}
@@ -78,12 +80,12 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 :::
 
-Note that the latter will also try to modify your shell startup script so
+Note that the latter will also modify your shell startup script so
 that `uv` can be found. More details on how to install `uv` can be found at
 [https://docs.astral.sh/uv/getting-started/installation/](https://docs.astral.sh/uv/getting-started/installation/)
 
-We then use `uv` to create an environment (here named `quartoenv`) with the
-Python packages that we will use in this workshop:
+We then use `uv` to create an environment (here named `quartoenv` and using
+Python version 3.13) with the Python packages that we will use in this workshop:
 
 ::: {.callout-note}
 ```
