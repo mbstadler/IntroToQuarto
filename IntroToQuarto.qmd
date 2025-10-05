@@ -9,7 +9,15 @@ format:
         embed-resources: true
         callout-appearance: default
         table-of-contents: true
+editor_options: 
+  chunk_output_type: console
 ---
+
+# Disclaimer
+
+The "Introduction to literature programming with Quarto" workshop
+is based on Charlotte Soneson's "Reproducible Publishing and literate
+programming with Quarto" available from [https://csoneson.github.io/ReproduciblePublishing2024/](https://csoneson.github.io/ReproduciblePublishing2024/) under a CC-BY License.
 
 # How (many) manuscripts are made
 
@@ -39,6 +47,7 @@ According to the same article, there are several advantages of using literate pr
 - since the report contains both the code and the output, we know precisely which code was executed to generate a specific result (compare this to copy-pasting your figures from the RStudio viewer into a Word document), and the text and results are arranged in a logical and consistent way. Circumventing the copy-pasting of results into reports also saves time.
 - it makes it easy to provide extensive documentation and explanations of the code - in principle, we can write entire papers using literate programming!
 - it provides built-in checks that the given code _actually runs_ - if not, no output report is generated.
+- it is easy to include a description of the used compute environment (for example the output of a session-info command that lists the versions of the interpreter and all packages), which is crucial to identify the source of possible differences that arise after an update.
 
 # What is R Markdown?
 
@@ -55,11 +64,12 @@ Quarto is fundamentally multi-lingual, and can for example be used to write pyth
 For a more detailed overview, see e.g. [the Quarto FAQ](https://quarto.org/docs/faq/rmarkdown.html#quarto-sounds-similar-to-r-markdown.-what-is-the-difference-and-why-create-a-new-project) or [this blog post](https://yihui.org/en/2022/04/quarto-r-markdown/). 
 In terms of the syntax, R Markdown and Quarto are very similar, and in many cases simply changing the file extension from `.Rmd` to `.qmd` or vice versa will give a valid file. 
 
+Conceptually, Jupyter notebooks (or iPython notebooks, `.ipynb`) are also comparable to R markdown and and Quarto, in that they combine natural language, code and code outputs in a single document, although Jupyter notebooks (in contrast to `.Rmd` and `.qmd` files, which are both extending Markdown `.md` files) are not plain text files and need a specific tool for editing. `.ipynb` can also store code output, yet without a guarantee that the code junks have been executed in order, and when used in version control systems, the complex internal structure of `.ipynb` files can lead to large, hard-to-read diffs.
+
 In this workshop, we will use Quarto, but most of the basics that we are going to cover works perfectly fine also with R Markdown. 
 Moreover, the main walkthrough will use R and [RStudio](https://posit.co/products/open-source/rstudio/), but pointers will be made to the corresponding steps in [Visual Studio Code](https://code.visualstudio.com/) (assuming that the latter is used for python projects).
 
-To install Quarto on your local computer, follow the instructions on [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/). 
-If you are using Visual Studio Code, you also need to install the Quarto and Jupyter [extensions](https://code.visualstudio.com/docs/editor/extension-marketplace).
+To prepare your environment for Quarto, follow the instructions outlined in [this document](index.html).
 
 # Creating a .qmd file in RStudio
 
@@ -153,7 +163,7 @@ However, in this case there is an important difference between the two ways of r
 For now, let's click on the `Render` button to generate an HTML file from our `.qmd` document. 
 
 ::: {.callout-important title="Python/Visual Studio Code" collapse="true"}
-To render the document in Visual Studio Code, first make sure that you have selected a suitable python interpreter (use `Ctrl` + `Shift` + `P`, or `Cmd` + `Shift` + `P` on macOS, to open the command palette, and then select a suitable python interpreter). 
+To render the document in Visual Studio Code, first make sure that you have selected a suitable python interpreter (use `Ctrl` + `Shift` + `P`, or `Cmd` + `Shift` + `P` on macOS, to open the command palette, start typing `Python: Select Interpreter` (if you want to select a given Python interpreter) or `Python: Set Project Environment` (if you want to use an existing environment, for example the `quartoenv` created in the preparation), click on the found command and then select a suitable interpreter or environment). 
 Then, the document can be rendered by clicking on the `Preview` button (left-most button in the top right corner): 
 
 ![](images/vscode-preview-button.png)
@@ -193,7 +203,7 @@ The available fields depend to some extent on the selected format.
 [This website](https://quarto.org/docs/reference/formats/html.html) lists the options available for HTML files. 
 
 In our example document, let's add a table of contents and change the theme. 
-You can find a list of available themes [here](https://www.datadreaming.org/post/r-markdown-theme-gallery/). 
+You can find a list of available themes [here](https://www.datadreaming.org/posts/2018-04-11-r-markdown-theme-gallery/2018-04-11-r-markdown-theme-gallery.html). 
 We will also add a line to make the HTML file _self-contained_ (`embed-resources: true`).
 Without this line, any external dependencies of the HTML file (images, style sheets, etc) will be placed in a separate folder, which must be distributed along with the HTML file for proper rendering. 
 A self-contained HTML file is larger, but can be shared or moved without external dependencies. 
@@ -246,7 +256,7 @@ Solution - fixed date
 ---
 title: "My first Quarto document"
 author: "Charlotte Soneson"
-date: "2024-06-11"
+date: "2025-10-14"
 date-format: "long"
 format: 
     html:
@@ -300,7 +310,7 @@ format:
 # The body of the document
 
 Below the YAML header, the rest of the `.qmd` document consists of a mix of regular text and code chunks.
-The text is formatted according to [`markdown` syntax](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) (see also [this page](https://www.markdownguide.org/basic-syntax/)).
+The text is formatted according to [`markdown` syntax](https://quarto.org/docs/authoring/markdown-basics.html) (see also [this page](https://www.markdownguide.org/basic-syntax/)).
 For example, headers (of different levels) are generated by prepending (different numbers of) hash symbols (`#`) to the header text:
 
 ```
@@ -412,10 +422,12 @@ For example, adding headers can now be done by selecting the desired header leve
 We can swap between the two editing modes at any time.
 This can also be helpful in order to learn the markdown syntax for specific formatting options.
 
+Remark: When you switch to the "Visual" mode, you may get a popup message that lets you confirm if you really want to switch. Switching is usually harmless but may entail a reformatting of the document, for example the placement of line breaks and indentation may change as a result.
 
 # Parameterized reports
 
-Sometimes, we have a template `.qmd` file from which we would like to generate multiple output files, each with a different value of a given parameter. 
+Sometimes, we have a template `.qmd` file from which we would like to generate multiple output files, each with a different value of a given parameter.
+A typical use-case for a parameterized report is the analysis of repeated experiments, in which all analysis are identical except for the parameter that defines the name of the input file with the measurement data.
 Instead of generating a separate `.qmd` file for each of these parameter values, we can make use of so called [_parameterized reports_](https://quarto.org/docs/computations/parameters.html). 
 To parameterize your `.qmd` file, add a section in the YAML header defining the parameters that will be used, and provide a default value: 
 
@@ -664,7 +676,7 @@ In this workshop, we have seen how we can use Quarto to generate reproducible re
 Of course this is not the only way to make analyses reproducible - done correctly, a regular script can be just as reproducible. 
 One nice aspect of literate programming, however, is that you can be sure that if the document compiles, the code actually works, you will see exactly how each figure was generated, and there is no way to 'leave out' or miss any details. 
 With a script, you need some level of trust that this was, in fact, the code that was used to generate the saved figures. 
-In addition, there are many other aspects that are essential for reproducibility that we have not touched upon here, including making all data accessible, and if possible providing a reproducible software environment (for example, using conda environments or docker images). 
+In addition, there are many other aspects that are essential for reproducibility that we have not touched upon here, including making all data accessible, and if possible providing a reproducible software environment (for example, using python environments or docker images). 
 
 # Resources
 
@@ -673,8 +685,8 @@ In addition, there are many other aspects that are essential for reproducibility
 - [Quarto introductory tutorial](https://quarto.org/docs/get-started/hello/rstudio.html)
 - [Quarto authoring guide](https://quarto.org/docs/get-started/authoring/rstudio.html)
 - [More details about article layout in Quarto](https://quarto.org/docs/authoring/article-layout.html)
-- [R Markdown cheat sheet from RStudio](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-- [R Markdown reference guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
+- [R Markdown cheat sheet from RStudio](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf)
+- [R Markdown reference guide](https://posit.co/wp-content/uploads/2022/10/rmarkdown-1.pdf)
 - [R Markdown crash course](https://zsmith27.github.io/rmarkdown_crash-course/index.html)
 - [R Markdown website](https://rmarkdown.rstudio.com/)
 - [Lessons on R Markdown](https://rmarkdown.rstudio.com/lesson-1.html)
