@@ -544,6 +544,60 @@ session_info.show()
 ```
 :::
 
+# Combining Python and R in the same document
+
+As mentioned before, Quarto documents may contain code chunks for several programming languages, including R, Python and bash. It is even possible to combine both R and Python in the same document and exchange data between the two interpreter processes, using the special variables `r` (from Python) or `py` (from R).
+
+Here, we illustrate this by using RStudio and including an R code chunk at the beginning of the document that selects the Python environment to be used for the document. This functionality is provided by the [reticulate](https://rstudio.github.io/reticulate/) package: 
+
+```{{r}}
+# load R's reticulate library
+library(reticulate)
+
+# select the python virtual environment to use
+use_virtualenv("./quartoenv")
+
+# start the linked python process and print the python configuration
+py_config()
+```
+
+::: {.callout-tip title="Selecting a suitable Python environment"}
+A few things should be considered when combining R and Python in a single document:
+
+- only a single Python environment can be selected in a given R session, i.e. you cannot switch between two Python environments in a single document
+- the above R code with `use_virtualenv()` or `py_config()` should be called before any `{python}` code chunks, otherwise a default Python environment or interpreter will already have been selected 
+:::
+
+After the above code chunk, you can mix R and Python code chunks in your Quarto document, by defining the language of a each chunk using the language indicater as before (`{r}` or `{python}`).
+
+Through the special variables `r` (from Python) and `py` (from R), the linked R and Python processes can access objects from the other process, which are automatically translated according to [this table](https://rstudio.github.io/reticulate/articles/calling_python.html#type-conversions):
+![](images/reticulate-type-conversions.png)
+Here are some simple examples:
+
+Access the R `iris` `data.frame` from Python:
+
+```{{python}}
+type(r.iris)
+```
+
+Note that if Pandas is available in your Python environment, then this will be used to represent an R `data.frame`. Otherwise, it will be represented as a Python `dict`.
+
+As a second example, we use `numpy` to create a 2-by-3 matrix filled with ones:
+```{{r}}
+np <- reticulate::import("numpy")
+np$ones(c(2L, 3L))
+```
+
+Finally, we create a list in Python and access it from R:
+
+```{{python}}
+mylist = [0, 2, 4]
+```
+
+```{{r}}
+py$mylist
+```
+
 # Assembling figure panels within R
 
 Using the workflow described above, we have a way to reproducibly generate figure panels starting from a suitably processed input data file. 
@@ -694,6 +748,7 @@ In addition, there are many other aspects that are essential for reproducibility
 - [R Markdown cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
 - [Blog post on Quarto vs Rmarkdown](https://yihui.org/en/2022/04/quarto-r-markdown/#:~:text=For%20R%20users%2C%20Quarto%20uses,implementation%20of%20figure%20cross%2Dreferences.)
 - [Quarto/R Markdown - what's different](https://laderast.github.io/qmd_rmd/#/title-slide)
+- [Reticulate: R Interface to Python](https://rstudio.github.io/reticulate/index.html)
 - [Quarto extensions - journal articles](https://quarto.org/docs/extensions/listing-journals.html)
 - [Reproducible manuscripts with Quarto (talk by JJ Allaire)](https://jjallaire.quarto.pub/reproducible-manuscripts-with-quarto/#/title-slide)
 - [Quarto webR extension for building interactive websites](https://quarto-webr.thecoatlessprofessor.com/)
