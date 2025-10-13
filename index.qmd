@@ -15,7 +15,7 @@ The "Introduction to literature programming with Quarto" workshop
 is based on Charlotte Soneson's "Reproducible Publishing and literate
 programming with Quarto" available from [https://csoneson.github.io/ReproduciblePublishing2024/](https://csoneson.github.io/ReproduciblePublishing2024/) under a CC-BY License.
 
-# Preparing your computer for Quarto
+# Preparing your computer for Quarto (only if working on your own computer)
 
 If you would like to follow along on your own computer during the workshop, 
 please install `Quarto` and prepare your setup following the instructions 
@@ -27,6 +27,10 @@ For general instructions on how to install `Quarto`, see
 [https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/).
 
 ## R / RStudio setup
+
+Reminder: You only need to install your own R and RStudio if you want to work
+on your own computer. If you use the FMI Rstudio server, everything (quarto, R,
+RStudio and TinyTex) is already pre-installed.
 
 Recent versions of RStudio come with built-in support for `Quarto`. Thus, 
 we recommend installing a recent version of R (the current release version is 
