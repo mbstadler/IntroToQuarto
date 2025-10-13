@@ -2737,8 +2737,9 @@ Selecting a suitable Python environment
 <div class="callout-body-container callout-body">
 <p>A few things should be considered when combining R and Python in a single document:</p>
 <ul>
-<li>only a single Python environment can be selected in a given R session, i.e. you cannot switch between two Python environments in a single document</li>
-<li>the above R code with <code>use_virtualenv()</code> or <code>py_config()</code> should be called before any <code>{python}</code> code chunks, otherwise a default Python environment or interpreter will already have been selected</li>
+<li>Only a single Python environment can be selected in a given R session, i.e. you cannot switch between two Python environments in a single document.</li>
+<li>The above R code with <code>use_virtualenv()</code> or <code>py_config()</code> should be called before any <code>{python}</code> code chunks, otherwise a default Python environment or interpreter will already have been selected.</li>
+<li>If no Python environment exists yet and <code>uv</code> is available on the computer, it will be used to create an ephemeral environment for the document when Python is first used. For more details, see the <a href="https://rstudio.github.io/reticulate/reference/py_require.html">py_require() documentation</a> or also the <a href="index.html">setup document</a> for this course session.</li>
 </ul>
 </div>
 </div>

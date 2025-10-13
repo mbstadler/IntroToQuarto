@@ -564,8 +564,9 @@ py_config()
 ::: {.callout-tip title="Selecting a suitable Python environment"}
 A few things should be considered when combining R and Python in a single document:
 
-- only a single Python environment can be selected in a given R session, i.e. you cannot switch between two Python environments in a single document
-- the above R code with `use_virtualenv()` or `py_config()` should be called before any `{python}` code chunks, otherwise a default Python environment or interpreter will already have been selected 
+- Only a single Python environment can be selected in a given R session, i.e. you cannot switch between two Python environments in a single document.
+- The above R code with `use_virtualenv()` or `py_config()` should be called before any `{python}` code chunks, otherwise a default Python environment or interpreter will already have been selected.
+- If no Python environment exists yet and `uv` is available on the computer, it will be used to create an ephemeral environment for the document when Python is first used. For more details, see the [py_require() documentation](https://rstudio.github.io/reticulate/reference/py_require.html) or also the [setup document](index.html) for this course session. 
 :::
 
 After the above code chunk, you can mix R and Python code chunks in your Quarto document, by defining the language of a each chunk using the language indicater as before (`{r}` or `{python}`).
