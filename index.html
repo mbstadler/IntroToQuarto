@@ -2198,9 +2198,9 @@ vertical-align: -.125em;
 <p>For general instructions on how to install <code>Quarto</code>, see <a href="https://quarto.org/docs/get-started/">https://quarto.org/docs/get-started/</a>.</p>
 <section id="r-rstudio-setup" class="level2">
 <h2 class="anchored" data-anchor-id="r-rstudio-setup">R / RStudio setup</h2>
-<p>Reminder: You only need to install your own R and RStudio if you want to work on your own computer. If you use the FMI Rstudio server, everything (quarto, R, RStudio and TinyTex) is already pre-installed.</p>
+<p>Reminder: You only need to install your own R and RStudio if you want to work on your own computer. If you use the FMI Rstudio server, everything (quarto, R, RStudio and TinyTex or Typst) is already pre-installed.</p>
 <p>Recent versions of RStudio come with built-in support for <code>Quarto</code>. Thus, we recommend installing a recent version of R (the current release version is 4.6) and RStudio, e.g. following the links and instructions available at <a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a>.</p>
-<p>In order to render documents into pdf format, <code>Quarto</code> needs to be able to access LaTeX. You can use <code>Quarto</code> to install <code>TinyTeX</code> by following the instructions at <a href="https://quarto.org/docs/output-formats/pdf-basics.html">https://quarto.org/docs/output-formats/pdf-basics.html</a> - i.e., type</p>
+<p>In order to render documents into pdf format, <code>Quarto</code> can use either <code>Typst</code> or <code>LaTeX</code>. The new <a href="https://quarto.org/docs/output-formats/typst.html"><code>Typst</code></a> typesetting system is fast and already comes bundled with RStudio. Here we use the older, tried and tested LaTeX, and you can use <code>Quarto</code> to install <code>TinyTeX</code> by following the instructions at <a href="https://quarto.org/docs/output-formats/pdf-basics.html">https://quarto.org/docs/output-formats/pdf-basics.html</a> - i.e., type</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2259,7 +2259,7 @@ deactivate</code></pre>
 <p>Instructions on how to install VS Code can be found at <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>.</p>
 <p>You will need to add a few extensions to VS Code (you can do this from inside VS Code by clicking on the <code>Extensions</code> tab). The extensions we need are <code>Python</code>, <code>Quarto</code>, and <code>Jupyter</code>.</p>
 <p>Next, open the Command Palette by pressing <code>Ctrl</code> + <code>Shift</code> + <code>P</code> (<code>Cmd</code> + <code>Shift</code> + <code>P</code> on macOS), and search for the command <code>Python: Select Interpreter</code>. Click on it and select the interpreter corresponding to the conda environment that you created above.</p>
-<p>Finally, in order to render documents into pdf format, <code>Quarto</code> needs to be able to access LaTeX. You can use <code>Quarto</code> to install <code>TinyTeX</code> by following the instructions at <a href="https://quarto.org/docs/output-formats/pdf-basics.html">https://quarto.org/docs/output-formats/pdf-basics.html</a> - i.e., type</p>
+<p>Finally, in order to render documents into pdf format, <code>Quarto</code> can use either <code>Typst</code> or <code>LaTeX</code>. The new <a href="https://quarto.org/docs/output-formats/typst.html"><code>Typst</code></a> typesetting system is fast and already comes bundled with RStudio. Here we use the older, tried and tested LaTeX, and you can use <code>Quarto</code> to install <code>TinyTeX</code> by following the instructions at <a href="https://quarto.org/docs/output-formats/pdf-basics.html">https://quarto.org/docs/output-formats/pdf-basics.html</a> - i.e., type</p>
 <div class="callout callout-style-simple callout-note no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">

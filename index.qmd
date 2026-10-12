@@ -30,16 +30,18 @@ For general instructions on how to install `Quarto`, see
 
 Reminder: You only need to install your own R and RStudio if you want to work
 on your own computer. If you use the FMI Rstudio server, everything (quarto, R,
-RStudio and TinyTex) is already pre-installed.
+RStudio and TinyTex or Typst) is already pre-installed.
 
 Recent versions of RStudio come with built-in support for `Quarto`. Thus, 
 we recommend installing a recent version of R (the current release version is 
 4.6) and RStudio, e.g. following the links and instructions available at 
 [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/).
 
-In order to render documents into pdf format, `Quarto` needs to be able to 
-access LaTeX. You can use `Quarto` to install `TinyTeX` by following the 
-instructions at [https://quarto.org/docs/output-formats/pdf-basics.html](https://quarto.org/docs/output-formats/pdf-basics.html) - i.e., type 
+In order to render documents into pdf format, `Quarto` can use either `Typst` or
+`LaTeX`. The new [`Typst`](https://quarto.org/docs/output-formats/typst.html)
+typesetting system is fast and already comes bundled with RStudio. Here we use
+the older, tried and tested LaTeX, and you can use `Quarto` to install `TinyTeX`
+by following the instructions at [https://quarto.org/docs/output-formats/pdf-basics.html](https://quarto.org/docs/output-formats/pdf-basics.html) - i.e., type 
 
 ::: {.callout-note}
 ```
@@ -112,9 +114,11 @@ Next, open the Command Palette by pressing `Ctrl` + `Shift` + `P`
 `Python: Select Interpreter`. Click on it and select the interpreter 
 corresponding to the conda environment that you created above. 
 
-Finally, in order to render documents into pdf format, `Quarto` needs to be able to 
-access LaTeX. You can use `Quarto` to install `TinyTeX` by following the 
-instructions at [https://quarto.org/docs/output-formats/pdf-basics.html](https://quarto.org/docs/output-formats/pdf-basics.html) - i.e., type 
+Finally, in order to render documents into pdf format, `Quarto` can use either
+`Typst` or `LaTeX`. The new [`Typst`](https://quarto.org/docs/output-formats/typst.html)
+typesetting system is fast and already comes bundled with RStudio. Here we use
+the older, tried and tested LaTeX, and you can use `Quarto` to install `TinyTeX`
+by following the instructions at [https://quarto.org/docs/output-formats/pdf-basics.html](https://quarto.org/docs/output-formats/pdf-basics.html) - i.e., type 
 
 ::: {.callout-note}
 ```
