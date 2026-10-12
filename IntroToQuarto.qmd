@@ -34,7 +34,7 @@ In addition, it has the advantage of automatically providing us with a reproduci
 
 # What is literate programming?
 
-The term '[literate programming](http://www.literateprogramming.com/)' was introduced by Donald Knuth in 1984, and refers to a programming paradigm where an explanation of the analysis process in natural language is interspersed with chunks of executable source code.
+The term '[literate programming](http://www.literateprogramming.com/)' was introduced by [Donald Knuth](https://en.wikipedia.org/wiki/Donald_Knuth) in 1984, and refers to a programming paradigm where an explanation of the analysis process in natural language is interspersed with chunks of executable source code.
 This single source file is then used to create both machine executable code (effectively, extracting the code chunks) and a comprehensive human-readable report containing both the natural language text and the results of running the code. 
 A recent [publication](https://academic.oup.com/bib/article/24/6/bbad375/7326135) by Ziemann et al. considers literate programming one of the five pillars of reproducible computational research: 
 
