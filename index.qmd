@@ -34,7 +34,7 @@ RStudio and TinyTex) is already pre-installed.
 
 Recent versions of RStudio come with built-in support for `Quarto`. Thus, 
 we recommend installing a recent version of R (the current release version is 
-4.5) and RStudio, e.g. following the links and instructions available at 
+4.6) and RStudio, e.g. following the links and instructions available at 
 [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/).
 
 In order to render documents into pdf format, `Quarto` needs to be able to 
