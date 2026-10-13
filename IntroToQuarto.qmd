@@ -75,12 +75,12 @@ To prepare your environment for Quarto, follow the instructions outlined in [thi
 
 To create a Quarto document (`.qmd` file) in RStudio, click on `New File`, and select `Quarto Document` (or, equivalently, go via the menu `File` -\> `New File` -\> `Quarto Document`).
 
-![](images/create-qmd.png)
+![](images/create-qmd.png){width=187}
 
 In the dialog that comes up, you can give the document a title and type your name into the `Author` field, and select the default output format (this can be changed later).
 Note that generating pdf or Word output requires additional software to be available on your system - for now, let's select HTML as the output format.
 
-![](images/name-qmd.png)
+![](images/name-qmd.png){width=580}
 
 Clicking "Create" opens the Quarto document in the RStudio IDE.
 Before we look at the content, save the document to disk, either by clicking on the 'Save' button or by going via `File` -> `Save` - here, we will use the name `qmd-example.qmd`. 
@@ -88,7 +88,7 @@ Before we look at the content, save the document to disk, either by clicking on 
 ::: {.callout-important title="Python/Visual Studio Code" collapse="true"}
 To create a new file in Visual Studio Code, go to the Explorer tab and click on `New File...`.
 
-![](images/vscode-newfile.png)
+![](images/vscode-newfile.png){width=233}
 
 Give the file a name (e.g. `qmd-example.qmd`). 
 Then paste the following content into the file (we will go through it below) and set the author name appropriately.
@@ -128,7 +128,7 @@ The `echo: false` option disables the printing of code (only output is displayed
 There are several ways to render the `.qmd` document to its final format. 
 In RStudio, one way is to click on the `Render` button above the document (or use the keyboard shortcut `Ctrl`+`Shift`+`K`, or `Cmd`+`Shift`+`K` on macOS): 
 
-![](images/qmd-render-button.png)
+![](images/qmd-render-button.png){width=72}
 
 Another option is to type the following in the R console (assuming that the `quarto` package is installed and that the `.qmd` file is saved as `qmd-example.qmd` in the current working directory): 
 
@@ -141,12 +141,12 @@ quarto::quarto_render("qmd-example.qmd")
 Either of these options will render the document in a new R session. 
 The figure below illustrates what happens 'under the hood' when a document is rendered:
 
-![](images/rstudio-qmd-how-it-works.png)
+![](images/rstudio-qmd-how-it-works.png){width=700}
 Source: [https://quarto.org/docs/get-started/hello/rstudio.html](https://quarto.org/docs/get-started/hello/rstudio.html)
 
 More settings related to the rendering can be found by clicking on the little gear next to the Render button: 
 
-![](images/qmd-render-settings.png)
+![](images/qmd-render-settings.png){width=314}
 
 ::: {.callout-tip title="Rendering an R Markdown document"}
 To render an R Markdown document, you can click the `Knit` button in RStudio, or type 
@@ -166,13 +166,13 @@ For now, let's click on the `Render` button to generate an HTML file from our `.
 To render the document in Visual Studio Code, first make sure that you have selected a suitable python interpreter (use `Ctrl` + `Shift` + `P`, or `Cmd` + `Shift` + `P` on macOS, to open the command palette, start typing `Python: Select Interpreter` (if you want to select a given Python interpreter) or `Python: Set Project Environment` (if you want to use an existing environment, for example the `quartoenv` created in the preparation), click on the found command and then select a suitable interpreter or environment). 
 Then, the document can be rendered by clicking on the `Preview` button (left-most button in the top right corner): 
 
-![](images/vscode-preview-button.png)
+![](images/vscode-preview-button.png){width=100}
 
 Alternatively, one can use the keyboard shortcut `Ctrl` + `Shift` + `K` (or `Cmd` + `Shift` + `K` on macOS).
 
 The rendering is done in a very similar way to what we showed for RStudio above, the main difference being that the Jupyter engine is used instead of knitr to extract and evaluate the code chunks. 
 
-![](images/qmd-how-it-works.png)
+![](images/qmd-how-it-works.png){width=648}
 
 Source: [https://quarto.org/docs/get-started/hello/vscode.html](https://quarto.org/docs/get-started/hello/vscode.html)
 :::
@@ -240,7 +240,7 @@ format:
 
 If we add multiple possible formats as in the example above, we can choose the rendering format in the little dropdown menu that then appears next to the 'Render' button:
 
-![](images/qmd-render-multiple.png)
+![](images/qmd-render-multiple.png){width=185}
 
 By default, the format that is specified first in the YAML will be used. 
 
@@ -342,12 +342,12 @@ It is also useful to know that we can directly execute a line in a code chunk in
 A whole chunk can be executed by clicking on the little green arrow in the top right corner of the chunk. 
 The grey arrow executes all chunks preceding the current chunk.
 
-![](images/qmd-execute-arrows.png)
+![](images/qmd-execute-arrows.png){width=482}
 
 ::: {.callout-important title="Python/Visual Studio Code" collapse="true"}
 In Visual Studio Code, we can execute a code chunk by clicking on the `Run Cell` arrow above the chunk: 
 
-![](images/vscode-runcell.png)
+![](images/vscode-runcell.png){width=398}
 
 We can also use `Ctrl` + `Enter` (`Cmd` + `Enter` on macOS) or `Shift` + `Enter` to execute the chunk in an interactive python session. 
 :::
@@ -394,7 +394,7 @@ It is often useful to assign labels to the chunks.
 This makes it easier to navigate the document and find the source of any errors, and additionally means that any output figures generated in the document will be named according to the chunk where they were generated. 
 In RStudio, you can navigate between sections and chunks in the lower left corner of the editor panel: 
 
-![](images/qmd-navigate.png)
+![](images/qmd-navigate.png){width=200}
 
 To label a chunk, add a suitable name as an option:
 
@@ -409,7 +409,7 @@ To label a chunk, add a suitable name as an option:
 Above, we opened and interacted with the `.qmd` document in 'Source' mode.
 However, RStudio (version 1.4 and newer) also allows us to view and edit the document in 'Visual' mode. In RStudio, we can switch mode by clicking on the corresponding button above the document:
 
-![](images/rmd-mode.png)
+![](images/rmd-mode.png){width=115}
 
 This can also be selected in the dialog box when the file is initially created. 
 
@@ -572,7 +572,7 @@ A few things should be considered when combining R and Python in a single docume
 After the above code chunk, you can mix R and Python code chunks in your Quarto document, by defining the language of a each chunk using the language indicater as before (`{r}` or `{python}`).
 
 Through the special variables `r` (from Python) and `py` (from R), the linked R and Python processes can access objects from the other process, which are automatically translated according to [this table](https://rstudio.github.io/reticulate/articles/calling_python.html#type-conversions):
-![](images/reticulate-type-conversions.png)
+![](images/reticulate-type-conversions.png){width=419}
 Here are some simple examples:
 
 Access the R `iris` `data.frame` from Python:
