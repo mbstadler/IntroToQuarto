@@ -593,7 +593,7 @@ A few things should be considered when combining R and Python in a single docume
 After the above code chunk, you can mix R and Python code chunks in your Quarto document, by defining the language of a each chunk using the language indicater as before (`{r}` or `{python}`).
 
 Through the special variables `r` (from Python) and `py` (from R), the linked R and Python processes can access objects from the other process, which are automatically translated according to [this table](https://rstudio.github.io/reticulate/articles/calling_python.html#type-conversions):
-![](images/reticulate-type-conversions.png){width=838}
+![](images/reticulate-type-conversions.png){width=786}
 
 Here are some simple examples:
 
