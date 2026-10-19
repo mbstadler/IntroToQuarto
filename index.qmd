@@ -111,8 +111,9 @@ are `Python`, `Quarto`, and `Jupyter`.
 
 Next, open the Command Palette by pressing `Ctrl` + `Shift` + `P` 
 (`Cmd` + `Shift` + `P` on macOS), and search for the command 
-`Python: Select Interpreter`. Click on it and select the interpreter 
-corresponding to the conda environment that you created above. 
+`Python: Select Interpreter` or `Python: Set Project Environment`.
+Click on it and select the desired interpreter or environment folder,
+for example the `quartoenv` environment that you created above. 
 
 Finally, in order to render documents into pdf format, `Quarto` can use either
 `Typst` or `LaTeX`. The new [`Typst`](https://quarto.org/docs/output-formats/typst.html)
